@@ -42,13 +42,30 @@ public class MainActivity extends AppCompatActivity {
             case R.id.butDot:
                 if (dotIsPresent(number)){
                 }else{
-                number = number + ".";
+                    number = number + ".";
                 }
                 break;
 
-            case R.id.butPlusMinus: number = "-"+number ; break;
+            case R.id.butPlusMinus:
+                if(minusIspresent(number))
+                number = number.substring(1);
+                else{
+                    number = "-" + number;
+                }
+
+                break;
         }
+
         editText.setText(number);
+    }
+
+    public boolean minusIspresent(String number) {
+        if (number.charAt(0) == '-') {
+            return true;
+            }else {
+            return false;
+        }
+
     }
 
 
