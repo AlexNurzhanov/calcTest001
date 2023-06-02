@@ -90,6 +90,7 @@
                 android:backgroundTint="@color/normalnyi"/>
             <Button
                 android:id="@+id/butPercent"
+                android:onClick="clickPercent"
                 android:text="%"
                 android:width="30pt"
                 android:layout_weight="1"

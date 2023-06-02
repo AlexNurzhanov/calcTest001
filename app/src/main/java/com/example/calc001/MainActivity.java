@@ -10,7 +10,7 @@ import android.widget.EditText;
 public class MainActivity extends AppCompatActivity {
 
     String oldNumder;
-    String operator;
+    String operator = "";
     Boolean isNew=true;
     EditText editText;
 
@@ -109,4 +109,31 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void clickPercent(View view) {
+        if (operator== "") {
+            String number = editText.getText().toString();
+            double temp = Double.parseDouble(number) / 100;
+            number = temp + "";
+            editText.setText(number);
+
+        }else {
+            Double result = 0.0;
+            String newNumber = editText.getText().toString();
+            switch (operator) {
+                case "+": result = Double.parseDouble(oldNumder) + Double.parseDouble(oldNumder) * Double.parseDouble(newNumber) / 100;
+                    break;
+                case "-": result = Double.parseDouble(oldNumder) - Double.parseDouble(oldNumder) * Double.parseDouble(newNumber) / 100;
+                    break;
+                case "*": result = Double.parseDouble(oldNumder) * Double.parseDouble(oldNumder) * Double.parseDouble(newNumber) / 100;
+                    break;
+                case "/": result = Double.parseDouble(oldNumder) / (Double.parseDouble(oldNumder) * Double.parseDouble(newNumber) / 100);
+                    break;
+            }
+            editText.setText(result + "");
+            operator = "";
+
+        }
+
+
+    }
 }
